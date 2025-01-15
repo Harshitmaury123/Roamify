@@ -1,0 +1,63 @@
+<% layout("/layouts/boilerplate") -%>
+<body>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+    <h3>Edit your Listing</h3>
+    <form action="/listings/<%= elisting.id %>?_method=PATCH" method="post" novalidate enctype="multipart/form-data" class="needs-validation">
+        <div>
+            <label for="title" class="from-label">Title</label>
+            <input type="text" name="listing[title]" id="" value="<%=elisting.title %>" class="form-control" required>
+            <div class="valid-feedback">Title Looks Good!</div>
+            <div class="invalid-feedback">Title cannot be empty</div>
+        </div>
+        <div>
+            <label for="description" class="from-label">Description</label>
+            <textarea name="listing[description]" id="" %>" class="form-control" required>
+                <%= elisting.description %>
+            </textarea>
+            <div class="invalid-feedback">Description cannot be empty</div>
+        </div>
+        <div class="mb-3">
+            Original Listing Image 
+            <br>
+            <img src="<%= originalImageUrl%>" alt=""> </div>
+        <div>
+            <label for="Image URL" class="from-label">Upload new Image</label>
+            <input type="file" name="listing[image]" id="" value="" class="form-control" >
+            <div class="invalid-feedback">Image is required</div>
+        </div>
+
+        <div>
+            <label for="category">Change Category: </label>
+            <select name="category" class="form-select" id="category" aria-label="Default select example" required>
+              <option value="mountains" <%= originalCategory === 'mountains' ? 'selected' : '' %>>mountains</option>
+              <option value="castle" <%= originalCategory === 'castle' ? 'selected' : '' %>>castle</option>
+              <option value="camping" <%= originalCategory === 'camping' ? 'selected' : '' %>>camping</option>
+              <option value="pools" <%= originalCategory === 'pools' ? 'selected' : '' %>>pools</option>
+            </select>
+            <br>
+          </div>
+          
+        <div class="row">
+            <div class="col-4">
+            <label for="price" class="from-label">Price</label>
+            <input type="number" name="listing[price]" id="" value="<%= elisting.price %>" class="form-control" required>
+            <div class="invalid-feedback">Price cannot be empty</div>
+            </div>
+            <div class="col-8">
+            <label for="country" class="from-label">Country</label>
+            <input type="text" name="listing[country]" id="" value="<%= elisting.country %>" class="form-control" required>
+            <div class="invalid-feedback">Country cannot be empty</div>
+            </div>
+        </div>
+        <div>
+            <label for="location" class="from-label">Location</label>
+            <input type="text" name="listing[location]" id="" value="<%= elisting.location %>" class="form-control" required> 
+            <div class="invalid-feedback">Location cannot be empty</div>
+        </div>
+<br><br>
+        <button class="btn btn-dark edit-btn">Save Changes</button>
+    </form>
+</div>
+</div>
+</body>
