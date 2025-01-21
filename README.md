@@ -1,6 +1,6 @@
 # Roamify
 
-This project is a web application inspired by **Airbnb**, designed to facilitate property listings, bookings, and user interactions. It provides a seamless experience for both property owners and travelers.
+This project is inspired by **Airbnb**, designed to facilitate property listings, bookings, and user interactions. It provides a seamless experience for both property owners and travelers.
 
 ---
 
